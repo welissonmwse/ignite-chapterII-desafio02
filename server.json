@@ -31,6 +31,14 @@
       "description": "Macarrão com pimentão, ervilha e ervas finas colhidas no himalaia.",
       "available": false,
       "id": 5
+    },
+    {
+      "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
+      "name": "Alho e Óleo",
+      "price": "25.90",
+      "description": "Macarrão com alho e óleo",
+      "available": false,
+      "id": 6
     }
   ]
 }
