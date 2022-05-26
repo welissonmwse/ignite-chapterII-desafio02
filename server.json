@@ -43,7 +43,7 @@
     {
       "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
       "name": "Teste",
-      "price": "18.80",
+      "price": "15.80",
       "description": "Um macarrão de teste",
       "available": true,
       "id": 7
