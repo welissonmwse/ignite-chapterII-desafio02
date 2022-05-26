@@ -3,6 +3,7 @@ import { FiEdit3, FiTrash } from 'react-icons/fi';
 
 import { Container } from './styles';
 import api from '../../services/api';
+import { FoodType } from '../../@types';
 
 // class Food extends Component {
 //   constructor(props) {
@@ -91,7 +92,13 @@ import api from '../../services/api';
 
 // export default Food;
 
-export default function Food({food, handleEditFood, handleDelete}){
+interface FoodProps {
+  food: FoodType;
+  handleEditFood: (food: FoodType) => void;
+  handleDelete: (id: number) => void;
+}
+
+export default function Food({food, handleEditFood, handleDelete} : FoodProps){
   const [isAvailable, setIsAvailable] = useState(true)
 
   const toggleAvailable = async () => {
