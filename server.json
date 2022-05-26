@@ -39,6 +39,14 @@
       "description": "Macarrão com alho e óleo",
       "available": true,
       "id": 6
+    },
+    {
+      "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
+      "name": "Teste",
+      "price": "18.80",
+      "description": "Um macarrão de teste",
+      "available": true,
+      "id": 7
     }
   ]
 }
