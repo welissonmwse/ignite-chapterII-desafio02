@@ -4,6 +4,8 @@ import { FiCheckSquare } from 'react-icons/fi';
 import { Form } from './styles';
 import Modal from '../Modal';
 import Input from '../Input';
+import { FormHandles } from '@unform/core';
+import { FoodType } from '../../@types';
 
 // class ModalEditFood extends Component {
 //   constructor(props) {
@@ -47,11 +49,25 @@ import Input from '../Input';
 
 // export default ModalEditFood;
 
+type ModalEditFoodDataProps = Omit<FoodType, 'id' | 'available'>
 
-export default function ModalEditFood({ isOpen, setIsOpen, editingFood, handleUpdateFood }){
-  const formRef = createRef()
+interface ModalEditFoodProps{
+  isOpen: boolean;
+  editingFood: ModalEditFoodDataProps;
+  setIsOpen: () => void;
+  handleUpdateFood: (data: ModalEditFoodDataProps) => void;
+}
 
-  async function handleSubmit(data){
+export default function ModalEditFood({ 
+  isOpen, 
+  editingFood, 
+  setIsOpen, 
+  handleUpdateFood 
+}: ModalEditFoodProps){
+
+  const formRef = createRef<FormHandles>()
+
+  async function handleSubmit(data: ModalEditFoodDataProps){
     handleUpdateFood(data);
     setIsOpen();
   };
