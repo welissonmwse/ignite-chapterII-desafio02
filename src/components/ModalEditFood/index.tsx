@@ -49,13 +49,13 @@ import { FoodType } from '../../@types';
 
 // export default ModalEditFood;
 
-type ModalEditFoodDataProps = Omit<FoodType, 'id' | 'available'>
+// type ModalEditFoodDataProps = Omit<FoodType, 'id' | 'available'>
 
 interface ModalEditFoodProps{
   isOpen: boolean;
-  editingFood: ModalEditFoodDataProps;
+  editingFood: FoodType;
   setIsOpen: () => void;
-  handleUpdateFood: (data: ModalEditFoodDataProps) => void;
+  handleUpdateFood: (data: FoodType) => void;
 }
 
 export default function ModalEditFood({ 
@@ -67,7 +67,7 @@ export default function ModalEditFood({
 
   const formRef = createRef<FormHandles>()
 
-  async function handleSubmit(data: ModalEditFoodDataProps){
+  async function handleSubmit(data: FoodType){
     handleUpdateFood(data);
     setIsOpen();
   };

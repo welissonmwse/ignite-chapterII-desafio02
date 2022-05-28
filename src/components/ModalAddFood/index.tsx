@@ -5,6 +5,7 @@ import { Form } from './styles';
 import Modal from '../Modal';
 import Input from '../Input';
 import { FormHandles } from '@unform/core';
+import { FoodType } from '../../@types';
 
 // class ModalAddFood extends Component {
 //   constructor(props) {
@@ -47,23 +48,23 @@ import { FormHandles } from '@unform/core';
 
 // export default ModalAddFood;
 
-interface ModalAddFoodDataProps{
-  name: string;
-  description: string;
-  price: string;
-  image: string;
-}
+// interface ModalAddFoodDataProps{
+//   name: string;
+//   description: string;
+//   price: string;
+//   image: string;
+// }
 
 interface ModalAddFoodProps{
   isOpen: boolean;
   setIsOpen: () => void;
-  handleAddFood: (data: ModalAddFoodDataProps) => void;
+  handleAddFood: (data: FoodType) => void;
 }
 
 export default function ModalAddFood({ isOpen, setIsOpen, handleAddFood }: ModalAddFoodProps){
   const formRef = createRef<FormHandles>()
 
-  async function handleSubmit(data: ModalAddFoodDataProps){    
+  async function handleSubmit(data: FoodType){    
     handleAddFood(data)
     setIsOpen()
   }

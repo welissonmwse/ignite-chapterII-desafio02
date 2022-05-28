@@ -5,6 +5,7 @@ import api from '../../services/api';
 import Food from '../../components/Food';
 import ModalAddFood from '../../components/ModalAddFood';
 import ModalEditFood from '../../components/ModalEditFood';
+import { FoodType } from '../../@types';
 import { FoodsContainer } from './styles';
 
 // class ClassDashboard extends Component {
@@ -120,14 +121,20 @@ import { FoodsContainer } from './styles';
 // };
 
 // export default Dashboard;
+// interface Food{
+//   description: string;
+//   image: string;
+//   name: string;
+//   price: string;
+// }
 
 export default function Dashboard(){
-  const [foods, setFoods] = useState([])
-  const [editingFood, setEditingFood] = useState({})
+  const [foods, setFoods] = useState<FoodType[]>([])
+  const [editingFood, setEditingFood] = useState<FoodType>({} as FoodType)
   const [modalOpen, setModalOpen] = useState(false)
   const [editModalOpen, setEditModalOpen] = useState(false)
 
-  async function handleAddFood(food){
+  async function handleAddFood(food: FoodType){
     try {
       const response = await api.post('/foods', {
         ...food,
@@ -135,13 +142,12 @@ export default function Dashboard(){
       });
 
       setFoods([...foods, response.data])
-
     } catch (err) {
       console.log(err);
     }
   }
 
-  async function handleUpdateFood(food){
+  async function handleUpdateFood(food: FoodType){
     try {
       const foodUpdated = await api.put(
         `/foods/${editingFood.id}`,
@@ -153,13 +159,12 @@ export default function Dashboard(){
       );
 
       setFoods(foodsUpdated)
-
     } catch (err) {
       console.log(err);
     }
   }
 
-  async function handleDeleteFood(id){
+  async function handleDeleteFood(id: number){
 
     await api.delete(`/foods/${id}`);
 
@@ -176,7 +181,7 @@ export default function Dashboard(){
     setEditModalOpen(!editModalOpen)
   }
 
-  function handleEditFood(food ){
+  function handleEditFood(food: FoodType ){
     setEditingFood(food)
     setEditModalOpen(true)
   }
