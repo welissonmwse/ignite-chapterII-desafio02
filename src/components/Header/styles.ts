@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   background: #c72828;
-  padding: 30px 0;
+  padding: 30px 16px;
 
   header {
-    width: 1280px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 0 160px;
     display: flex;
@@ -36,6 +36,24 @@ export const Container = styled.div`
             border-radius: 0 8px 8px 0;
             margin: 0 auto;
           }
+        }
+      }
+    }
+  }
+
+  @media(max-width: 600px){
+    header {
+      img{
+        width: 250px;
+      }
+      
+      nav div button{  
+        .text{
+          display: none;
+        }
+
+        .icon{
+          border-radius: 8px;
         }
       }
     }
